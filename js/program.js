@@ -6,7 +6,14 @@ const infoButton = document.querySelector("#info");
 const resultParagraph = document.querySelector("#result");
 const infoSection = document.querySelector("#infoSection");
 
+// Essa váriavel removes os botões de incremento e decremento de valor dentro dos inputs do tipo number em navegadores que não suportam os psudo-elementos "::-webkit-inner-spin-button" e "::-webkit-outer-spin-button".
 
+const disableIncrementInput = document.querySelectorAll("input[type='number']");
+
+disableIncrementInput.forEach(function(input) {
+    input.style.WebkitAppearance = "none"; 
+    input.style.MozAppearance = "textfield";
+});
 
 calculateButton.addEventListener("click", function () {
   if (!initialAmountInput.value || !interestRateInput.value || !timePeriodInput.value) {
